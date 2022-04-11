@@ -1,7 +1,6 @@
-FROM python:3.7
-WORKDIR /app
-COPY . .
-RUN pip install gunicorn
-RUN pip install -r requirements.txt
-ENV PORT=80
-CMD exec gunicorn --bind :8080 --workers 1 --threads 8 main:app
+FROM ubuntu 
+RUN apt update 
+RUN apt install –y apache2 
+RUN apt install –y apache2-utils 
+RUN apt clean 
+EXPOSE 80 CMD [“apache2ctl”, “-D”, “FOREGROUND”]
