@@ -44,8 +44,8 @@ jobs:
           google-project-id: GOOGLE_PROJECT_ID         
       - gcp-gke/rollout-image:
           cluster: aman-test1
-          container: aman-html 
-          deployment: httpd 
+          container: web 
+          deployment: web-aman  
           dry-run: server 
           image: aman-test
           namespace: default
