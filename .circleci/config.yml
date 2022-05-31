@@ -61,6 +61,3 @@ workflows:
           context: tech-session-var
           requires:
             - build-push-job 
-  post-steps:
-            - run:
-                command: kubectl rollout restart deployments/$DEPLOYMENT_NAME
