@@ -15,7 +15,7 @@ jobs:
           docker-context: .
           dockerfile: Dockerfile
           google-project-id: GOOGLE_PROJECT_ID
-          image: aman-circle-test
+          image: aman-test
           registry-url: "gcr.io"
           path: . 
           tag: latest
@@ -26,10 +26,10 @@ jobs:
           google-project-id: GOOGLE_PROJECT_ID
       - gcp-gcr/push-image:
           registry-url: gcr.io
-          image: aman-circle-test
+          image: aman-test
           google-project-id: GOOGLE_PROJECT_ID
           tag: latest
-          
+
   deploy-job:
     docker:
       - image: google/cloud-sdk
@@ -43,11 +43,24 @@ jobs:
           google-compute-zone: GOOGLE_COMPUTE_ZONE
           google-project-id: GOOGLE_PROJECT_ID         
       - gcp-gke/rollout-image:
-          cluster: satya-test-circleci
-          container: satya-html 
+          cluster: aman-test-circleci
+          container: aman-html 
           deployment: httpd 
           dry-run: server 
-          image: aman-circle-test 
+          image: aman-test
           namespace: default
           tag: latest 
 
+
+workflows:  
+  workflow-build-push-image-aman:    
+    jobs:
+      - build-push-job:
+          context: tech-session-var
+      - deploy-job:
+          context: tech-session-var
+          requires:
+            - build-push-job 
+  post-steps:
+            - run:
+                command: kubectl rollout restart deployments/$DEPLOYMENT_NAME
