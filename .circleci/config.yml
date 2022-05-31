@@ -43,7 +43,7 @@ jobs:
           google-compute-zone: GOOGLE_COMPUTE_ZONE
           google-project-id: GOOGLE_PROJECT_ID         
       - gcp-gke/rollout-image:
-          cluster: aman-test-circleci
+          cluster: aman-test1
           container: aman-html 
           deployment: httpd 
           dry-run: server 
@@ -57,7 +57,7 @@ workflows:
     jobs:
       - build-push-job:
           context: test-ci
-    #  - deploy-job:
-     #     context: tech-session-var
-      #    requires:
-       #     - build-push-job 
+      - deploy-job:
+          context: test-ci
+          requires:
+            - build-push-job 
