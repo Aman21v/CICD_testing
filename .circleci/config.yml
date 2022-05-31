@@ -57,7 +57,7 @@ workflows:
     jobs:
       - build-push-job:
           context: tech-session-var
-      - deploy-job:
-          context: tech-session-var
-          requires:
-            - build-push-job 
+    #  - deploy-job:
+     #     context: tech-session-var
+      #    requires:
+       #     - build-push-job 
