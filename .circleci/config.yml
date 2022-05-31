@@ -56,7 +56,7 @@ workflows:
   workflow-build-push-image-aman:    
     jobs:
       - build-push-job:
-          context: tech-session-var
+          context: test-ci
     #  - deploy-job:
      #     context: tech-session-var
       #    requires:
