@@ -46,7 +46,7 @@ jobs:
           cluster: aman-test1
           container: web-aman 
           deployment: web-aman 
-          image: aman-test
+          image: gcr.io/searce-playground-v1/aman-test
 
 
 workflows:  
