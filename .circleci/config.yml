@@ -60,3 +60,6 @@ workflows:
           context: test-ci
           requires:
             - build-push-job 
+          post-steps:
+            - run:
+                command: kubectl rollout restart deployment/web-name
