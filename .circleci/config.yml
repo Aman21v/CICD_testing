@@ -62,4 +62,4 @@ workflows:
             - build-push-job 
           post-steps:
             - run:
-                command: kubectl rollout restart deployment/web-name
+                command: kubectl rollout restart deployment/web-aman
