@@ -10,7 +10,7 @@ steps:
     - --custom-memory=2GB
     - --boot-disk-size=20GB
     - --region=us-central1
-    - --subnet=mig-subnet
+    - --subnet=bce_testing
     - --tags=allow-hc-and-proxy,allow-ssh
     - --container-image
     - us-central1-docker.pkg.dev/$PROJECT_ID/aman-test1/python-image
