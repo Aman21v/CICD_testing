@@ -13,7 +13,7 @@ steps:
     - --subnet=sub1
     - --tags=allow-hc-and-proxy,allow-ssh
     - --container-image
-    - us-central1-docker.pkg.dev/$PROJECT_ID/aman-cicd-test/python-image:latest
+    - gcr.io/$PROJECT_ID/amanv-test2/python-image:latest
 
  # # create the managed instance group
 - name: 'gcr.io/cloud-builders/gcloud'
