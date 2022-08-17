@@ -2,10 +2,11 @@
 # build docker image
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', 'gcr.io/searce-playground-v1/amanv-test2/python-image', '.' ]
+  args: [ 'build', '-t', 'gcr.io/$PROJECT_ID/amanv-test2/python-image', '.' ]
 # push docker image
 images:
-- 'gcr.io/searce-playground-v1/amanv-test2/python-image'
+- 'gcr.io/$PROJECT_ID/amanv-test2/python-image'
 ## [END cloudbuild_quickstart_build]
 options:
  logging: CLOUD_LOGGING_ONLY
+
